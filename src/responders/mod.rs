@@ -9,11 +9,11 @@ pub fn health_check() -> impl Responder {
     HttpResponse::Ok()
 }
 
-pub fn get_people_list() -> impl Responder {
+pub fn get_beer_list() -> impl Responder {
     let conn = get_connection();
-    let people = handlers::fetch_people_list(conn);
+    let all_beers = handlers::fetch_beer_list(conn);
 
-    HttpResponse::Ok().json(people)
+    HttpResponse::Ok().json(all_beers)
 }
 
 pub fn create_person(person_json: web::Json<models::PersonReq>) -> impl Responder {

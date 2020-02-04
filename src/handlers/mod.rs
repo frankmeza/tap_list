@@ -1,29 +1,45 @@
-use crate::{models::Person, queries};
+use crate::{
+    models::{Beer, Person},
+    queries,
+};
 use postgres::Connection;
 
-pub fn fetch_people_list(conn: Connection) -> Vec<Person> {
-    let mut people = Vec::new();
-    let q = queries::get_people();
+pub fn fetch_beer_list(conn: Connection) -> Vec<Beer> {
+    let mut beers = Vec::new();
+    let q = queries::get_beers();
     let rows = &conn.query(&q, &[]);
 
     match rows {
+        Err(err) => {
+            println!("rows in fetch_beer_list very virus: {:?}", err);
+        }
         Ok(rows) => {
             for row in rows {
-                let person = Person {
+                let beer = Beer {
                     id: row.get(0),
                     name: row.get(1),
-                    ts: row.get(2),
+                    beer_type: row.get(2),
+                    abv: row.get(3),
+                    ibu: row.get(4),
+                    serving_size: row.get(5),
+                    cost: row.get(6),
+                    brewery_name: row.get(7),
+                    brewery_city: row.get(8),
+                    brewery_state: row.get(9),
+                    brewery_img_url: row.get(10),
+                    keg_id: row.get(11),
+                    keg_size: row.get(12),
+                    keg_amount_left: row.get(13),
+                    updated_ts: row.get(14),
+                    created_ts: row.get(15),
                 };
 
-                people.push(person);
+                beers.push(beer);
             }
-        }
-        Err(err) => {
-            println!("rows in fetch_people_list very virus: {:?}", err);
         }
     }
 
-    people
+    beers
 }
 
 pub fn fetch_person_by_id(conn: Connection, id: &str) -> Person {
