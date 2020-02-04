@@ -23,6 +23,8 @@ CREATE TABLE beers (
     brewery_img_url   VARCHAR(100), 
     keg_id            VARCHAR(3) NOT NULL,
     keg_size          INTEGER NOT NULL, 
-    keg_amount_left   INTEGER NOT NULL
+    keg_amount_left   INTEGER NOT NULL,
+    updated_ts        INTEGER NOT NULL,
+    created_ts        INTEGER NOT NULL,
 );
 ```
