@@ -1,8 +1,7 @@
-use crate::{
-    models::{Beer, Person},
-    queries,
-};
+use crate::{models::Beer, queries};
 use postgres::Connection;
+
+mod utils;
 
 pub fn fetch_beer_list(conn: Connection) -> Vec<Beer> {
     let mut beers = Vec::new();
@@ -42,34 +41,42 @@ pub fn fetch_beer_list(conn: Connection) -> Vec<Beer> {
     beers
 }
 
-pub fn fetch_person_by_id(conn: Connection, id: &str) -> Person {
-    let mut person = Person {
-        id: String::from(""),
-        name: String::from(""),
-        ts: 0,
-    };
-
-    let q = queries::get_name_id_person(id);
+pub fn fetch_beer_by_id(conn: Connection, id: &str) -> Beer {
+    let mut beer = utils::pour_a_beer();
+    let q = queries::get_beer_by_id(id);
     let rows = &conn.query(&q, &[]);
 
     match rows {
-        Ok(rows) => {
-            for row in rows {
-                let p = Person {
-                    id: row.get(0),
-                    name: row.get(1),
-                    ts: row.get(2),
-                };
-
-                person = p;
-            }
-        }
         Err(err) => {
             println!("rows in fetch_person_by_id very virus: {:?}", err);
         }
+        Ok(rows) => {
+            for row in rows {
+                let b = Beer {
+                    id: row.get(0),
+                    name: row.get(1),
+                    beer_type: row.get(2),
+                    abv: row.get(3),
+                    ibu: row.get(4),
+                    serving_size: row.get(5),
+                    cost: row.get(6),
+                    brewery_name: row.get(7),
+                    brewery_city: row.get(8),
+                    brewery_state: row.get(9),
+                    brewery_img_url: row.get(10),
+                    keg_id: row.get(11),
+                    keg_size: row.get(12),
+                    keg_amount_left: row.get(13),
+                    updated_ts: row.get(14),
+                    created_ts: row.get(15),
+                };
+
+                beer = b;
+            }
+        }
     }
 
-    person
+    beer
 }
 
 pub fn create_person(conn: Connection, id: &str, name: &str, timestamp: u64) {

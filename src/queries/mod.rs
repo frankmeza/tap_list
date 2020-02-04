@@ -2,8 +2,8 @@ pub fn get_beers() -> String {
     format!("SELECT * FROM beers")
 }
 
-pub fn get_name_id_person(id: &str) -> String {
-    format!("SELECT id, name, ts FROM person WHERE id = '{}'", id,)
+pub fn get_beer_by_id(id: &str) -> String {
+    format!("SELECT * FROM beers WHERE id = '{}'", id)
 }
 
 pub fn create_person(id: &str, name: &str, timestamp: u64) -> String {
