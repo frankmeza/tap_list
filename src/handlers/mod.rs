@@ -13,5 +13,5 @@ pub use example::{
 ////////////
 
 pub use beer::{
-    handle_fetch_beer_list,
+    fetch_beer_list,
 };

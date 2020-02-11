@@ -2,7 +2,7 @@ use postgres::Connection;
 
 use crate::{models::*, queries};
 
-pub fn handle_fetch_beer_list(conn: Connection) -> Vec<Beer> {
+pub fn fetch_beer_list(conn: Connection) -> Vec<Beer> {
     let mut beer_list = Vec::new();
     let q = queries::fetch_beer_list();
     let rows = &conn.query(&q, &[]);
