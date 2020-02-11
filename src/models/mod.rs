@@ -1,18 +1,15 @@
-use serde_derive::{Deserialize, Serialize};
+mod app;
+mod remote;
 
-#[derive(Serialize, Deserialize, Debug)]
-pub struct Id {
-    pub id: String,
-}
+pub use app::{
+    Person,
+    ///////
+    Beer,
+};
 
-#[derive(Serialize, Deserialize, Debug)]
-pub struct PersonReq {
-    pub name: String,
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct Person {
-    pub id: String,
-    pub name: String,
-    pub ts: i64,
-}
+pub use remote::{
+    Id,
+    PersonReq,
+    //////////
+    BeerRequest,
+};
