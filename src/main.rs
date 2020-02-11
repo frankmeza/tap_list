@@ -12,7 +12,7 @@ extern crate env_logger;
 extern crate ws;
 
 pub fn get_connection() -> Connection {
-    Connection::connect("postgres://postgres@localhost:5432/people", TlsMode::None)
+    Connection::connect("postgres://postgres@localhost:5432/beer_tap_list", TlsMode::None)
         .expect("ERROR: connecting to postgres")
 }
 
@@ -32,11 +32,15 @@ fn main() {
             )
             .service(web::resource("/ws/").route(web::get().to(ws_server::start)))
             .route("/health", web::get().to(responders::health_check))
+            // EXAMPLE
             .route("/people", web::get().to(responders::get_people_list))
             .route("/people", web::post().to(responders::create_person))
             .route("/people/{id}", web::get().to(responders::get_person_by_id))
             .route("/people", web::put().to(responders::update_person_by_id))
             .route("/people", web::delete().to(responders::delete_person_by_id))
+            // BEER
+            // TODO
+            // .route("/beers", web::get().to(responders::get_beer_list()))
     })
     .bind("127.0.0.1:8088")
     .unwrap()
