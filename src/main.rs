@@ -40,7 +40,7 @@ fn main() {
             .route("/people", web::delete().to(responders::delete_person_by_id))
             // BEER
             // TODO
-            // .route("/beers", web::get().to(responders::get_beer_list()))
+            .route("/beers", web::get().to(|| responders::get_beer_list()))
     })
     .bind("127.0.0.1:8088")
     .unwrap()
