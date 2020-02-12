@@ -1,17 +1,18 @@
 use serde_derive::{Deserialize, Serialize};
 // all client request models live in this file
 
-// example client request shape
+// EXAMPLE
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Id {
     pub id: String,
 }
 
-// example client request shape
 #[derive(Serialize, Deserialize, Debug)]
 pub struct PersonReq {
     pub name: String,
 }
+
+//////////
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct BeerRequest {

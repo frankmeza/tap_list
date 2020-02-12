@@ -1,6 +1,5 @@
+// EXAMPLE
 mod example;
-////////////
-mod beer;
 
 pub use example::{
     fetch_people_list,
@@ -10,7 +9,9 @@ pub use example::{
     delete_person_by_id,
 };
 
-////////////
+//////////
+
+mod beer;
 
 pub use beer::{
     fetch_beer_list,

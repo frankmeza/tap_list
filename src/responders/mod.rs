@@ -1,6 +1,5 @@
+// EXAMPLE
 mod example;
-////////////
-mod beer;
 
 pub use example::{
     health_check,
@@ -11,7 +10,10 @@ pub use example::{
     delete_person_by_id,
 };
 
-////////////////////////
+//////////
+
+mod beer;
+
 pub use beer::{
     get_beer_list,
 };

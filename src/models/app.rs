@@ -1,13 +1,15 @@
 use serde_derive::{Deserialize, Serialize};
 //  all app state models live in this file
 
-// example state shape
+// EXAMPLE
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Person {
     pub id: String,
     pub name: String,
     pub ts: i64,
 }
+
+//////////
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Beer {

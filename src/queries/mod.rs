@@ -1,6 +1,5 @@
+// EXAMPLE
 mod example;
-////////////
-mod beer;
 
 pub use example::{
     create_person,
@@ -10,7 +9,9 @@ pub use example::{
     update_person_by_id,
 };
 
-////////////
+//////////
+
+mod beer;
 
 pub use beer::{
     fetch_beer_list,
