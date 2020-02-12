@@ -45,6 +45,4 @@ fn main() {
     .unwrap()
     .run()
     .unwrap();
-
-    println!("Server stopped");
 }

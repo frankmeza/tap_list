@@ -1,15 +1,12 @@
 mod app;
 mod remote;
 
-pub use app::{
-    Person,
-    ///////
-    Beer,
-};
+// EXAMPLE
+pub use app::Person;
+//////////
+pub use app::{Beer, BeerFilters};
 
-pub use remote::{
-    Id,
-    PersonReq,
-    //////////
-    BeerRequest,
-};
+// EXAMPLE
+pub use remote::{Id, PersonReq};
+//////////
+pub use remote::BeerRequest;

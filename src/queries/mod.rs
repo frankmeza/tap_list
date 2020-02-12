@@ -12,7 +12,8 @@ pub use example::{
 //////////
 
 mod beer;
+mod beer_utils;
 
 pub use beer::{
-    fetch_beer_list,
+    get_beer_list,
 };

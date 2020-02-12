@@ -31,3 +31,22 @@ pub struct Beer {
     pub updated_ts: i32,
     pub created_ts: i32,
 }
+
+pub enum BeerFilters {
+    Id,
+    SortOrder,
+    Name,
+    BeerType,
+    Abv,
+    Ibu,
+    ServingSize,
+    Cost,
+    BreweryName,
+    BreweryCity,
+    BreweryState,
+    KegId,
+    KegSize,
+    KegAmountLeft,
+    UpdatedTs,
+    CreatedTs,
+}

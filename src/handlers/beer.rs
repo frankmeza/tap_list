@@ -4,7 +4,7 @@ use crate::{models::*, queries};
 
 pub fn fetch_beer_list(conn: Connection) -> Vec<Beer> {
     let mut beer_list = Vec::new();
-    let q = queries::fetch_beer_list();
+    let q = queries::get_beer_list();
     let rows = &conn.query(&q, &[]);
 
     match rows {
