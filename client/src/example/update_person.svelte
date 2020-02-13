@@ -1,6 +1,6 @@
 <script lang="ts">
     import { constants } from "./constants"
-    import { updatePersonById } from "utils/app_utils"
+    import { updatePersonById } from "utils/example_utils"
 
     const { UPDATE_RECORD } = constants
 
