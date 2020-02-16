@@ -15,7 +15,7 @@ const camelCase = (snakeCaseVariable: string): string => {
 	return snakeCased.join("")
 }
 
-const camelCaseObject = (obj: {}): CamelCaseObject => {
+export const camelCaseObject = (obj: {}): CamelCaseObject => {
 	const newObject: CamelCaseObject = {}
 
 	for (let [ key, value ] of Object.entries(obj)) {
@@ -25,4 +25,3 @@ const camelCaseObject = (obj: {}): CamelCaseObject => {
 	return newObject
 }
 
-export { camelCase, camelCaseObject }
