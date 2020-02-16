@@ -1,28 +1,10 @@
-import { baseAppRequest, buildRequest, requestMethod as r, headers, BASE_URL, RequestBody,  Person } from "core"
-// maybe not from .svelte files, but you CANNNN import pure typescript types from .ts files
-// import { baseAppRequest, buildRequest, requestMethod as r, headers, BASE_URL } from "./index"
-
-// interface RequestBody {
-// 	id: string
-// 	name: string
-// 	ts: number
-// }
-
-// interface AppRequest {
-// 	body: string
-// 	headers: {}
-// 	method: string
-// }
-
-// const buildRequest = (
-// 	method: string,
-// 	body: Partial<RequestBody>,
-// ): AppRequest => ({
-// 	...baseAppRequest,
-// 	body: JSON.stringify(body),
-// 	headers,
-// 	method,
-// })
+import {
+    buildRequest,
+    requestMethod as r,
+    RequestBody,
+    BASE_URL
+} from "../remote"
+import { Person } from "../core"
 
 // TODO add error handling
 export async function getPeople(): Promise<Person[]> {

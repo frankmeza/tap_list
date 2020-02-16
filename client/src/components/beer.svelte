@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { Beer, defaultBeer } from "../core"
-    export let beer: Beer = defaultBeer
+    import { defaultBeer } from "../core"
+    export let beer = defaultBeer
 
     const { sortOrder } = beer
 </script>

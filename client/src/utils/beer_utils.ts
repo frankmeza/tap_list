@@ -1,5 +1,5 @@
 import { Beer } from "core"
-import { requestMethod as r, headers, BASE_URL } from "./index"
+import { BASE_URL } from "../remote"
 import { camelCaseObject } from "./transform"
 
 export async function getBeerList(): Promise<Beer[]> {

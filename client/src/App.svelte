@@ -4,9 +4,9 @@
     import { getBeerList } from "./utils/beer_utils"
     import BeerCpx from "./components/beer.svelte"
 
-    const { TAP_LIST } = constants.beer
+    const { beer: { TAP_LIST } } = constants
 
-    let beers: Beer[] = []
+    let beers = []
 
     const getBeers = async () => {
         beers = await getBeerList()
