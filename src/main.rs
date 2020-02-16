@@ -33,15 +33,17 @@ fn main() {
             .service(web::resource("/ws/").route(web::get().to(ws_server::start)))
             .route("/health", web::get().to(responders::health_check))
             .route("/beers", web::get().to(responders::get_beer_list))
+            // EXAMPLE
+            .route("/people", web::get().to(responders::get_people_list))
             .route("/people", web::post().to(responders::create_person))
             .route("/beers/{id}", web::get().to(responders::get_beer_by_id))
             .route("/people", web::put().to(responders::update_person_by_id))
             .route("/people", web::delete().to(responders::delete_person_by_id))
+            // BEER
+            .route("/beers", web::get().to(responders::get_beer_list))
     })
     .bind("127.0.0.1:8088")
     .unwrap()
     .run()
     .unwrap();
-
-    println!("Server stopped");
 }

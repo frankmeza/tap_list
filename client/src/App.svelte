@@ -1,11 +1,29 @@
 <script lang="ts">
-    import AddPerson from "./add_person.svelte"
-    import DeletePerson from "./delete_person.svelte"
-    import UpdatePerson from "./update_person.svelte"
-    import GetPeople from "./get_people.svelte"
+    import { Beer } from "core"
+    const BEER_LIST = "Beer Tap List"
+    import { getBeerList } from "./utils/beer_utils"
+
+    let beers: Beer[] = []
+
+    const getBeers = async () => {
+        beers = await getBeerList()
+        return beers
+    }
 </script>
 
-<AddPerson />
-<UpdatePerson />
-<DeletePerson />
-<GetPeople />
+
+<h1>
+    {BEER_LIST}
+</h1>
+
+<button on:click={getBeers}>
+    push button
+</button>
+
+<pre>{JSON.stringify(beers, null, 4)}</pre>
+
+<style>
+    h1 {
+        color: tomato;
+    }
+</style>

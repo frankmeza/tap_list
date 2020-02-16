@@ -1,6 +1,6 @@
 <script lang="ts">
     import { ws } from "./ws_client"
-    import { deletePersonById } from "utils/app_utils"
+    import { deletePersonById } from "utils/example_utils"
     import { constants } from "./constants"
     // constants
     const { DELETE_RECORD } = constants

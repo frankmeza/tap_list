@@ -1,34 +1,3 @@
-// EXAMPLE
-export interface Person {
-    id: string
-    ts: number
-    name: string
-}
-
-export interface Mailbox {
-	messages: string[]
-}
-
-export interface Beer {
-    id: string
-    sort_order: number
-    name: string
-    beer_type: string
-    abv: string
-    ibu: string
-    serving_size: string
-    cost: string
-    brewery_name: string
-    brewery_city: string
-    brewery_state: string
-    brewery_img_url: string
-    keg_id: string
-    keg_size: number
-    keg_amount_left: number
-    updated_ts: number
-    created_ts: number
-}
-
 const BASE_URL = "http://localhost:8088"
 const headers = { "Content-Type": "application/json" }
 

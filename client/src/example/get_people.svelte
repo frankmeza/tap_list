@@ -4,7 +4,7 @@
     import { mailboxStore } from "./stores"
 
     import { constants } from "./constants"
-    import { getPeople } from "utils/app_utils"
+    import { getPeople } from "utils/example_utils"
 
     const { GET_RECORDS, RESET } = constants
 
