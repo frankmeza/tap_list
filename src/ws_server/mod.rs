@@ -26,3 +26,5 @@ pub fn start(req: HttpRequest, stream: web::Payload) -> Result<HttpResponse, Err
     println!("{:?}", resp);
     resp
 }
+
+// https://stackoverflow.com/questions/58424473/how-to-send-server-events-using-rust-with-actix-web-and-websockets
