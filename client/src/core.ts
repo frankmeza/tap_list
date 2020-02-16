@@ -11,22 +11,42 @@ export interface Mailbox {
 
 export interface Beer {
     id: string
-    sort_order: number
+    sortOrder: number
     name: string
-    beer_type: string
+    beerType: string
     abv: string
     ibu: string
-    serving_size: string
+    servingSize: string
     cost: string
-    brewery_name: string
-    brewery_city: string
-    brewery_state: string
-    brewery_img_url: string
-    keg_id: string
-    keg_size: number
-    keg_amount_left: number
-    updated_ts: number
-    created_ts: number
+    breweryName: string
+    breweryCity: string
+    breweryState: string
+    breweryImgUrl: string
+    kegId: string
+    kegSize: number
+    kegAmountLeft: number
+    updatedTs: number
+    createdTs: number
+}
+
+export const defaultBeer = {
+    id: "",
+    sortOrder: 0,
+    name: "",
+    beerType: "",
+    abv: "",
+    ibu: "",
+    servingSize: "",
+    cost: "",
+    breweryName: "",
+    breweryCity: "",
+    breweryState: "",
+    breweryImgUrl: "",
+    kegId: "",
+    kegSize: 0,
+    kegAmountLeft: 0,
+    updatedTs: 0,
+    createdTs: 0,
 }
 
 const BASE_URL = "http://localhost:8088"
