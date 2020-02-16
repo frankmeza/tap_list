@@ -14,11 +14,11 @@
     }
 </script>
 
-<h1>{TAP_LIST}
-
-<button on:click={getBeers}>push button</button>
-
+<h1>
+    {TAP_LIST}
+    <button on:click={getBeers}>push button</button>
 </h1>
+
 <div class="beers">
     <BeerCpx beer={beers[0]} />
     <BeerCpx beer={beers[0]} />
