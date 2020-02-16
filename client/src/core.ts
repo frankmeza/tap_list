@@ -73,4 +73,4 @@ const baseAppRequest: AppRequest = {
 	method: requestMethod.GET,
 }
 
-export { baseAppRequest, buildRequest, requestMethod, headers, BASE_URL, RequestBody }
+export { baseAppRequest, buildRequest, requestMethod, headers, BASE_URL }
