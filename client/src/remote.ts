@@ -1,4 +1,3 @@
-
 export const BASE_URL = "http://localhost:8088"
 export const headers = { "Content-Type": "application/json" }
 
@@ -41,4 +40,26 @@ export const baseAppRequest: AppRequest = {
 	body: "",
 	headers,
 	method: requestMethod.GET,
+}
+
+// remote shapes are received in snakecase
+
+export interface BeerRemote {
+	id: string
+	sort_order: number
+	name: string
+	beer_type: string
+	abv: string
+	ibu: string
+	serving_size: string
+	cost: string
+	brewery_name: string
+	brewery_city: string
+	brewery_state: string
+	brewery_img_url: string
+	keg_id: string
+	keg_size: number
+	keg_amount_left: number
+	updated_ts: number
+	created_ts: number
 }
