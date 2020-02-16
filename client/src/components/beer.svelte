@@ -8,6 +8,7 @@
 
 <div class="beer-container">
     <SortOrderDot sortOrder={sortOrder} />
+
     <p>{JSON.stringify(beer, null, 4)}</p>
 </div>
 
