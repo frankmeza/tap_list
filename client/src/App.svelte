@@ -1,7 +1,10 @@
 <script lang="ts">
     import { Beer } from "core"
-    const BEER_LIST = "Beer Tap List"
+    import { constants } from "./constants/index"
     import { getBeerList } from "./utils/beer_utils"
+    import BeerCpx from "./components/beer.svelte"
+
+    const { TAP_LIST } = constants.beer
 
     let beers: Beer[] = []
 
@@ -11,19 +14,23 @@
     }
 </script>
 
+<h1>{TAP_LIST}
 
-<h1>
-    {BEER_LIST}
+<button on:click={getBeers}>push button</button>
+
 </h1>
-
-<button on:click={getBeers}>
-    push button
-</button>
-
-<pre>{JSON.stringify(beers, null, 4)}</pre>
+<div class="beers">
+    <BeerCpx beer={beers[0]} />
+    <BeerCpx beer={beers[0]} />
+</div>
 
 <style>
     h1 {
         color: tomato;
+    }
+
+    .beers {
+        display: grid;
+        grid-template-columns: 50% 50%;
     }
 </style>
