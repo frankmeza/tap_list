@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { defaultBeer } from "../core"
+    import { defaultBeer, Beer } from "../core"
     import SortOrderDot from "./sort_order.svelte"
 
-    export let beer = defaultBeer
+    let beer: Beer = defaultBeer
     const { sortOrder } = beer
 </script>
 

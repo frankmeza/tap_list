@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let sortOrder = 0
+    export let sortOrder: number = 0
 </script>
 
 <div class="sort-order-dot">
