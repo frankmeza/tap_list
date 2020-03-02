@@ -1,13 +1,13 @@
 // EXAMPLE
-mod example;
+// mod example;
 
-pub use example::{
-    create_person,
-    delete_person_by_id,
-    get_name_id_person,
-    get_people,
-    update_person_by_id,
-};
+// pub use example::{
+//     create_person,
+//     delete_person_by_id,
+//     get_name_id_person,
+//     get_people,
+//     update_person_by_id,
+// };
 
 //////////
 
