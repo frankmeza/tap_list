@@ -15,6 +15,11 @@ use serde_derive::{Deserialize, Serialize};
 //////////
 
 #[derive(Serialize, Deserialize, Debug)]
+pub struct ErrorResponse {
+    pub message: String,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct BeerRequest {
     pub name: String,
     pub beer_type: String,

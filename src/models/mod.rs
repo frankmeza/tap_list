@@ -8,4 +8,4 @@ mod remote;
 //////////
 
 pub use app::{Beer, BeerFilters};
-pub use remote::BeerRequest;
+pub use remote::{BeerRequest, ErrorResponse};

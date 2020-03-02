@@ -3,9 +3,9 @@ use crate::{
     queries::beer_utils,
 };
 
-pub fn get_beer_list() -> String {
-    format!("SELECT * FROM beers;")
-}
+// pub fn get_beer_list() -> String {
+//     format!("SELECT * FROM beers;")
+// }
 
 pub fn get_beers_filtered_by(filter: BeerFilters, value: &str) -> String {
     let filter_item = beer_utils::generate_filter_string(filter);

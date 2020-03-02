@@ -1,17 +1,18 @@
-use postgres::Connection;
+use crate::{get_async_connection, models::Beer};
+use tokio_postgres::Error;
 
-use crate::{models::*, queries};
+pub async fn fetch_beer_list() -> Result<Vec<Beer>, Error> {
+    let statement = String::from("SELECT * FROM beers");
+    let rows_future = get_async_connection(statement);
 
-pub fn fetch_beer_list(conn: Connection) -> Vec<Beer> {
-    let mut beer_list = Vec::new();
-    let q = queries::get_beer_list();
-    let rows = &conn.query(&q, &[]);
-
-    match rows {
-        Err(err) => {
-            println!("fetch_beer_list very virus: {:?}", err);
+    let beer_list = match rows_future.await {
+        Err(_) => {
+            let empty_beer_list = Vec::new();
+            empty_beer_list
         }
         Ok(rows) => {
+            let mut beer_list = Vec::new();
+
             for row in rows {
                 let beer = Beer {
                     id: row.get(0),
@@ -35,8 +36,9 @@ pub fn fetch_beer_list(conn: Connection) -> Vec<Beer> {
 
                 beer_list.push(beer);
             }
+            beer_list
         }
-    }
+    };
 
-    beer_list
+    Ok(beer_list)
 }
