@@ -2,7 +2,7 @@
     import { defaultBeer, Beer } from "../core"
     import SortOrderDot from "./sort_order.svelte"
 
-    let beer: Beer = defaultBeer
+    export let beer: Beer = defaultBeer
     const { sortOrder } = beer
 </script>
 
