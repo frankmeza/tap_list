@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
     import { ws } from "./ws_client"
     import { Person } from "./core"
     import { mailboxStore } from "./stores"
@@ -44,4 +44,4 @@
         <li>{formatListItem(person)}</li>
     {/each}
     </ul>
-{/if}
+{/if} -->

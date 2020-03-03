@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
     import AddPerson from "./add_person.svelte"
     import DeletePerson from "./delete_person.svelte"
     import UpdatePerson from "./update_person.svelte"
@@ -8,4 +8,4 @@
 <AddPerson />
 <UpdatePerson />
 <DeletePerson />
-<GetPeople />
+<GetPeople /> -->

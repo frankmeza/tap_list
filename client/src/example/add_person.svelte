@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
     import { ws } from "./ws_client"
     import { createPerson } from "utils/example_utils"
     import { constants } from "./constants"
@@ -19,4 +19,4 @@
 <input bind:value={name} placeholder="enter name" />
 <button on:click={handleClick}>{ADD_RECORD(name)}</button>
 
-<p>Hello {name || 'anonymous'}!</p>
+<p>Hello {name || 'anonymous'}!</p> -->

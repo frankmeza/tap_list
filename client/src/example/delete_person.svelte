@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
     import { ws } from "./ws_client"
     import { deletePersonById } from "utils/example_utils"
     import { constants } from "./constants"
@@ -20,4 +20,4 @@
 
 <input bind:value={id} placeholder="enter id to delete" />
 <button on:click={handleClick}>{DELETE_RECORD(id)}</button>
-
+ -->

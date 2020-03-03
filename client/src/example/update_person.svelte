@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
     import { constants } from "./constants"
     import { updatePersonById } from "utils/example_utils"
 
@@ -22,4 +22,4 @@
 
 <input bind:value={id} placeholder="enter existing ID" />
 <input bind:value={newName} placeholder="enter new name" />
-<button on:click={handleClick}>{UPDATE_RECORD(newName)}</button>
+<button on:click={handleClick}>{UPDATE_RECORD(newName)}</button> -->
