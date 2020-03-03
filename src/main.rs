@@ -1,6 +1,5 @@
 use actix_cors::Cors;
 use actix_web::{http::header, web, App, HttpResponse, HttpServer, Responder};
-// use futures_util::future::future::FutureExt;
 use postgres::{Client, NoTls as PgNoTls};
 use tokio;
 use tokio_postgres::{Error, NoTls, Row};
@@ -61,7 +60,7 @@ async fn main() -> std::io::Result<()> {
             .route("/again", web::get().to(index2))
             // BEER
             .route("/beers", web::get().to(responders::get_beer_list))
-        // .route("/beers/{id}", web::get().to(responders::get_beer_by_id))
+            // .route("/beers/{id}", web::get().to(responders::get_beer_by_id))
     })
     .bind("127.0.0.1:8088")?
     .run()
