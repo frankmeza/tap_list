@@ -1,8 +1,8 @@
-use crate::{get_async_connection, models::Beer};
+use crate::{get_async_connection, models::Beer, queries::get_beer_list};
 use tokio_postgres::Error;
 
 pub async fn fetch_beer_list() -> Result<Vec<Beer>, Error> {
-    let statement = String::from("SELECT * FROM beers");
+    let statement = get_beer_list();
     let rows_future = get_async_connection(statement);
 
     let beer_list = match rows_future.await {
