@@ -33,6 +33,7 @@ pub async fn fetch_beer_list() -> Result<Vec<Beer>, Error> {
 
                 beer_list.push(beer);
             }
+
             beer_list
         }
     };

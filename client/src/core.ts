@@ -22,7 +22,7 @@ export interface Beer {
 	createdTs: number
 }
 
-export const defaultBeer = {
+export const defaultBeer: Beer = {
 	id: "",
 	sortOrder: 0,
 	name: "",

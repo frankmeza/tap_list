@@ -6,7 +6,7 @@
 
     const { beer: { TAP_LIST } } = constants
 
-    let beers: Beer[] = []
+    let beers = []
 
     const getBeers = async () => {
         const response = await getBeerList()
@@ -17,14 +17,18 @@
     }
 </script>
 
-<h1>
-    {TAP_LIST}
-    <button on:click={getBeers}>push button</button>
-</h1>
+<div class="app-container">
+    <div class="app-title">
+        <h1>
+            {TAP_LIST}
+            <button on:click={getBeers}>push button</button>
+        </h1>
 
-<div class="beers">
-    <BeerCpx beer={beers[0]} />
-    <BeerCpx beer={beers[0]} />
+        <div class="beers">
+            <BeerCpx beer={beers[0]} />
+            <BeerCpx beer={beers[0]} />
+        </div>
+    </div>
 </div>
 
 <style>
