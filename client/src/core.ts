@@ -1,10 +1,3 @@
-// EXAMPLE
-export interface Person {
-	id: string
-	ts: number
-	name: string
-}
-
 export interface Mailbox {
 	messages: string[]
 }
