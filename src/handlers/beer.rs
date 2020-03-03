@@ -6,10 +6,7 @@ pub async fn fetch_beer_list() -> Result<Vec<Beer>, Error> {
     let rows_future = get_async_connection(statement);
 
     let beer_list = match rows_future.await {
-        Err(_) => {
-            let empty_beer_list = Vec::new();
-            empty_beer_list
-        }
+        Err(tokio_error) => return Err(tokio_error),
         Ok(rows) => {
             let mut beer_list = Vec::new();
 
