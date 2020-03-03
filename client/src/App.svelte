@@ -6,11 +6,14 @@
 
     const { beer: { TAP_LIST } } = constants
 
-    let beers = []
+    let beers: Beer[] = []
 
     const getBeers = async () => {
-        beers = await getBeerList()
-        return beers
+        const response = await getBeerList()
+
+        if (response) {
+            beers = response
+        }
     }
 </script>
 

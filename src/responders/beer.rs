@@ -9,8 +9,8 @@ pub async fn get_beer_list() -> impl Responder {
     let beer_list = handlers::fetch_beer_list();
 
     match beer_list.await {
-        Err(_) => HttpResponse::ServiceUnavailable().json(ErrorResponse {
-            message: String::from("beer_list is virus"),
+        Err(error) => HttpResponse::ServiceUnavailable().json(ErrorResponse {
+            message: format!("{:?}", error),
         }),
         Ok(beer_list) => HttpResponse::Ok().json(beer_list),
     }
