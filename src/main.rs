@@ -1,6 +1,5 @@
 use actix_cors::Cors;
-use actix_web::{http::header, web, App, HttpResponse, HttpServer, Responder};
-use postgres::{Client, NoTls as PgNoTls};
+use actix_web::{http::header, web, App, HttpServer};
 use tokio;
 use tokio_postgres::{Error, NoTls, Row};
 
@@ -29,20 +28,6 @@ async fn get_async_connection(query_string: String) -> Result<Vec<Row>, Error> {
     Ok(rows)
 }
 
-pub fn get_connection() -> Client {
-    Client::connect("postgres://postgres@localhost:5432/beer_tap_list", PgNoTls)
-        .expect("pg connection is very virus")
-}
-
-async fn index() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
-}
-
-async fn index2() -> impl Responder {
-    HttpResponse::Ok().body("Hello world again!")
-}
-
-// #[tokio::main]
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
@@ -56,11 +41,9 @@ async fn main() -> std::io::Result<()> {
                     .max_age(3600)
                     .finish(),
             )
-            .route("/", web::get().to(index))
-            .route("/again", web::get().to(index2))
             // BEER
             .route("/beers", web::get().to(responders::get_beer_list))
-            // .route("/beers/{id}", web::get().to(responders::get_beer_by_id))
+        // .route("/beers/{id}", web::get().to(responders::get_beer_by_id))
     })
     .bind("127.0.0.1:8088")?
     .run()
