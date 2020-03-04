@@ -1,4 +1,4 @@
-<!-- checkout markdown snippets: pagetop, goback, atag, ltag for making links to top of page, and elsewhere -->
+<!-- checkout markdown snippets: pagetop, goback, makelinks, atag, ltag for making links to top of page, and elsewhere -->
 
 <sub><a name="top_of_page">top_of_page</a></sub>
 
@@ -8,7 +8,8 @@
 2. [Function Naming Convertion](#naming_functions) - how to name functions.
 
 <sub><a name="database">database</a></sub>  
-<sub>[go back to top](#top_of_page)</sub>  
+  
+[go back to top](#top_of_page)  
 
 ## 1. Database 
 
