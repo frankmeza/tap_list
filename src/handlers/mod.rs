@@ -1,5 +1,6 @@
 mod beer;
+mod utils;
 
 pub use beer::{
-    fetch_beer_list,
+    handle_beer_list,
 };

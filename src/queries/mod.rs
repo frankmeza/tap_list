@@ -1,6 +1,7 @@
 mod beer;
-// mod beer_utils;
+mod utils;
 
 pub use beer::{
     get_beer_list,
+    get_beers_filtered_by,
 };

@@ -1,16 +1,16 @@
-// use crate::{
-//     models::{Beer, BeerFilters},
-//     queries::beer_utils,
-// };
+use crate::{
+    models::{BeerFilters},
+    queries::utils,
+};
 
 pub fn get_beer_list() -> String {
     format!("SELECT * FROM beers;")
 }
 
-// pub fn get_beers_filtered_by(filter: BeerFilters, value: &str) -> String {
-//     let filter_item = beer_utils::generate_filter_string(filter);
-//     format!("SELECT * FROM beers WHERE {} = '{}';", filter_item, value)
-// }
+pub fn get_beers_filtered_by(filter: BeerFilters, value: &str) -> String {
+    let filter_item = utils::generate_filter_string(filter);
+    format!("SELECT * FROM beers WHERE {} = '{}';", filter_item, value)
+}
 
 // pub fn create_beer(beer: Beer) -> String {
 //     beer_utils::generate_create_query_string(beer)
