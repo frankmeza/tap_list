@@ -5,7 +5,7 @@
 # Table of Contents 
 
 1. [Database](#database) - for database related things to know.
-2. [Function Naming Convertion](#naming_functions) - how to name functions.
+2. [About Functions](#about_functions) - what each type does, and how they're named.
 
 <sub><a name="database">database</a></sub>
   
@@ -87,11 +87,11 @@ INSERT INTO beers (
 );
 ```
 
-<sub><a name="naming_functions">naming_functions</a></sub>  
+<sub><a name="about_functions">about_functions</a></sub>  
   
 <sub>[go back to top](#top_of_page)</sub>  
 
-## Function Naming Convention
+## Functions
 
 ### Responders
 
