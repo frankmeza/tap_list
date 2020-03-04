@@ -7,8 +7,8 @@
 1. [Database](#database) - for database related things to know.
 2. [Function Naming Convertion](#naming_functions) - how to name functions.
 
-<sub>go back to top(#top_of_page)</sub>
 <sub><a name="database">database</a></sub>  
+<sub>[go back to top](#top_of_page)</sub>  
 
 ## 1. Database 
 
@@ -86,8 +86,8 @@ INSERT INTO beers (
 );
 ```
 
-<sub>go back to top(#top_of_page)</sub>
 <sub><a name="naming_functions">naming_functions</a>  
+<sub>[go back to top](#top_of_page)</sub>  
 
 ## Function Naming Convention
 
