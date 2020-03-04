@@ -1,4 +1,11 @@
+# Table of Contents 
+<sub><a name="top_of_page">top_of_page</a></sub>
 
+1. [Database](#database) - for database related things to know.
+2. [Function Naming Convertion](#naming_functions) - how to name functions.
+
+## 1. Database 
+<sub><a name="database">'database'</a></sub>
 
 ### Create Database `beer_tap_list`
 
@@ -73,3 +80,20 @@ INSERT INTO beers (
   0
 );
 ```
+
+## Function Naming Convention
+<sub><a name="naming_functions">naming_functions</a>
+
+### Responders
+
+Functions that act as Responders are prefixed with `fetch_`.
+
+### Handlers, and utils
+
+Functions that act as Handlers are prefixed with `handle_`.  
+Functions that act as Handlers are prefixed with `collect_`.  
+
+### Queries, and utils
+
+Functions that return SQL Queries are prefixed with `get_`.  
+Functions that return SQL Queries are prefixed with `generate_`.  
