@@ -9,7 +9,7 @@
 
 <sub><a name="database">database
   
-<sub>[go back to top](#top_of_page)  
+<sub>[go back to top](#top_of_page)</sub>  
 
 ## 1. Database 
 
