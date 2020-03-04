@@ -1,11 +1,13 @@
+<sub><a name="top_of_page">top_of_page</a></sub>  
+
 # Table of Contents 
-<sub><a name="top_of_page">top_of_page</a></sub>
 
 1. [Database](#database) - for database related things to know.
 2. [Function Naming Convertion](#naming_functions) - how to name functions.
 
+<sub><a name="database">database</a></sub>  
+
 ## 1. Database 
-<sub><a name="database">'database'</a></sub>
 
 ### Create Database `beer_tap_list`
 
@@ -81,8 +83,9 @@ INSERT INTO beers (
 );
 ```
 
+<sub><a name="naming_functions">naming_functions</a>  
+
 ## Function Naming Convention
-<sub><a name="naming_functions">naming_functions</a>
 
 ### Responders
 
