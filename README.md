@@ -1,4 +1,6 @@
-<sub><a name="top_of_page">top_of_page</a></sub>  
+<!-- checkout markdown snippets: pagetop, goback, atag, ltag for making links to top of page, and elsewhere -->
+
+<sub><a name="top_of_page">top_of_page</a></sub>
 
 # Table of Contents 
 
