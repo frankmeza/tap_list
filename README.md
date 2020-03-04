@@ -1,7 +1,7 @@
 <!-- checkout markdown snippets: pagetop, goback, makelinks, atag, ltag for making links to top of page, and elsewhere -->
 
 <sub><a name="top_of_page">top_of_page</a></sub>
-
+ 
 # Table of Contents 
 
 1. [Database](#database) - for database related things to know.
@@ -88,6 +88,7 @@ INSERT INTO beers (
 ```
 
 <sub><a name="naming_functions">naming_functions</a>  
+  
 <sub>[go back to top](#top_of_page)</sub>  
 
 ## Function Naming Convention
@@ -105,3 +106,4 @@ Functions that act as Handlers are prefixed with `collect_`.
 
 Functions that return SQL Queries are prefixed with `get_`.  
 Functions that return SQL Queries are prefixed with `generate_`.  
+
