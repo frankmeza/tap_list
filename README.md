@@ -97,13 +97,30 @@ INSERT INTO beers (
 
 Functions that act as Responders are prefixed with `fetch_`.
 
+- are registered directly in `main()`
+- async functions that `impl Responder` and return a `HttpResponse`
+- typically call a handler function and receive its payload as a `Future`, giving the handler arguments as necessary
+- this `Future` is `await`ed and `match`ed as a `Result` with its enums `Ok()` and `Err()`
+
 ### Handlers, and utils
 
 Functions that act as Handlers are prefixed with `handle_`.  
+
+- are called by the `Responder` functions
+- receive arguments from caller, and return `Result<_, Error>`
+- use `Query` functions to create a SQL statement
+- this statement is passed into the `get_async_connection` as a SQL statement/query to be executed
+- // TODO MORE ABOUT ASYNC DB CONN
+- receives a payload from the `get_async_connection` as a `Future` and `match`es it to be either a `tokio_postgress_err` or the desired payload
+
 Functions that act as Handlers are prefixed with `collect_`.  
+
+- sometimes the handlers have util functions to do further computing, or data collecting into data shapes.
 
 ### Queries, and utils
 
 Functions that return SQL Queries are prefixed with `get_`.  
+
 Functions that return SQL Queries are prefixed with `generate_`.  
 
+- these help create dynamic SQL statements
