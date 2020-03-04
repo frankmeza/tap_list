@@ -7,9 +7,9 @@
 1. [Database](#database) - for database related things to know.
 2. [Function Naming Convertion](#naming_functions) - how to name functions.
 
-<sub><a name="database">database</a></sub>  
+<sub><a name="database">database
   
-[go back to top](#top_of_page)  
+<sub>[go back to top](#top_of_page)  
 
 ## 1. Database 
 
