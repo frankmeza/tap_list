@@ -1,7 +1,6 @@
-use crate::{
-    models::{BeerFilters},
-    queries::utils,
-};
+use crate::models::BeerFilters;
+
+mod utils;
 
 pub fn get_beer_list() -> String {
     format!("SELECT * FROM beers;")

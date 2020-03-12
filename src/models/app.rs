@@ -39,4 +39,5 @@ pub enum BeerFilters {
     KegAmountLeft,
     UpdatedTs,
     CreatedTs,
+    Error,
 }

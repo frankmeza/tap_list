@@ -43,6 +43,7 @@ async fn main() -> std::io::Result<()> {
             // BEER
             .route("/beers", web::get().to(responders::fetch_beer_list))
             // .route("/beers/{id}", web::get().to(responders::get_beer_by_id))
+            .route("/beers/filtered", web::get().to(responders::fetch_beers_filtered_by))
     })
     .bind("127.0.0.1:8088")?
     .run()

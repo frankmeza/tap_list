@@ -1,8 +1,8 @@
 use crate::{
     get_async_connection,
+    handlers::utils::gather_beer_list,
     models::{Beer, BeerFilters},
     queries::{get_beer_list, get_beers_filtered_by},
-    handlers::utils::gather_beer_list,
 };
 use tokio_postgres::Error;
 
