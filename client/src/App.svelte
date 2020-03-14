@@ -1,5 +1,5 @@
-<script lang="ts">
-    import { Beer } from "core"
+<script>
+    import { count } from "./stores"
     import { constants } from "./constants/index"
     import { getBeerList } from "./utils/beer_utils"
     import BeerCpx from "./components/beer.svelte"
@@ -20,7 +20,7 @@
 <div class="app-container">
     <div class="app-title">
         <h1>
-            {TAP_LIST}
+            {TAP_LIST} {JSON.stringify($count)}
             <button on:click={getBeers}>push button</button>
         </h1>
 
