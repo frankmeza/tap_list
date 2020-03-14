@@ -7,9 +7,9 @@ use crate::{
     models::ErrorResponse,
     queries::generate_enum,
 };
-use serde_derive::{Deserialize, Serialize};
 
 use actix_web::{web, HttpResponse, Responder};
+use serde_derive::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct FilterTypeAndValue {
@@ -39,7 +39,7 @@ pub async fn fetch_beers_filtered_by(f: web::Json<FilterTypeAndValue>) -> impl R
 
     match beer_list.await {
         Err(error) => HttpResponse::ServiceUnavailable().json(ErrorResponse {
-            message: format!("{:?}", error),
+            message: format!("ERROR: fetch_beers_filtered_by {:?}", error),
         }),
         Ok(beer_list) => HttpResponse::Ok().json(beer_list),
     }
