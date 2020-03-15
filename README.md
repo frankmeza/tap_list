@@ -6,6 +6,7 @@
 
 1. [Database](#database) - for database related things to know.
 2. [About Functions](#about_functions) - what each type does, and how they're named.
+3. [Client Architecture](#client_architecture)
 
 <sub><a name="database">database</a></sub>
   
@@ -124,3 +125,43 @@ Functions that return SQL Queries are prefixed with `get_`.
 Functions that return SQL Queries are prefixed with `generate_`.  
 
 - these help create dynamic SQL statements
+
+---
+
+<sub><a name="client_architecture">client_architecture</a></sub>
+  
+<sub>[go back to top](#top_of_page)</sub>  
+
+## Client Architecture
+
+### Components
+
+```js
+// javascript
+// component.svelte
+
+<script>
+  // import statements, with svelte stores imported first
+
+  // constants, both local to this component and destructured from imports above
+
+  // let variables (optional), changeable values for this component
+
+  // functions, as fat arrow functions
+  // - receive values from DOM events, send into util functions, imported from *_utils.ts
+  // - if `let vars` exist (for local state, aka component state) functions also receive returned values from async utils and reassign `let vars` with them
+</script>
+
+<!--  html markup  -->
+
+<style></style>
+```
+
+```ts
+// *_utils.ts
+
+// util functions are used for 
+// - fetch actions
+// - logic related to handling collections
+// - anything related to svelte/store logic
+```
