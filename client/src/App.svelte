@@ -8,7 +8,6 @@
 
     const getBeers = () => {
         fetchBeerList()
-        debugger
     }
 
     const reset = () => {
@@ -27,7 +26,7 @@
 
     <div class="beers-container">
         <Beer beer={$beerStore.beers[0]} />
-        <Beer beer={$beerStore.beers[0]} />
+        <Beer beer={$beerStore.beers[1]} />
     </div>
 </div>
 

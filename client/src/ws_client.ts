@@ -1,24 +1,24 @@
-import webSocket from "isomorphic-ws"
-import { mailboxStore } from "./stores"
+// import webSocket from "isomorphic-ws"
+// // import { mailboxStore } from "./stores/stores"
 
-export const ws = new webSocket("ws://127.0.0.1:8088/ws/")
+// export const ws = new webSocket("ws://127.0.0.1:8088/ws/")
 
-ws.onopen = () => {
-	ws.send(Date.now())
-	console.log("connected")
-}
+// ws.onopen = () => {
+// 	ws.send(Date.now())
+// 	console.log("connected")
+// }
 
-ws.onclose = () => {
-	console.log("disconnected")
-}
+// ws.onclose = () => {
+// 	console.log("disconnected")
+// }
 
-ws.onmessage = (data: webSocket.MessageEvent) => {
-	const payload = data.data.toString()
+// ws.onmessage = (data: webSocket.MessageEvent) => {
+// 	const payload = data.data.toString()
 
-	const printMsg = !!parseInt(payload)
-		? `Roundtrip time: ${Date.now() - parseInt(data.data.toString())} ms`
-		: payload
+// 	const printMsg = !!parseInt(payload)
+// 		? `Roundtrip time: ${Date.now() - parseInt(data.data.toString())} ms`
+// 		: payload
 
-    mailboxStore.addMsg(printMsg)
-    console.log(mailboxStore)
-}
+// 	mailboxStore.addMsg(printMsg)
+// 	console.log(mailboxStore)
+// }
