@@ -1,5 +1,3 @@
-import { getBeerList } from "./beer_utils"
+import { fetchBeerList } from "./beer_utils"
 
-export {
-    getBeerList,
-}
+export { fetchBeerList }

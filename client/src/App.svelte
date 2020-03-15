@@ -1,33 +1,33 @@
 <script>
-    import { count } from "./stores"
+    import { beerStore } from "./stores"
     import { constants } from "./constants/index"
-    import { getBeerList } from "./utils/beer_utils"
-    import BeerCpx from "./components/beer.svelte"
+    import { fetchBeerList } from "./utils/beer_utils"
+    import Beer from "./components/beer.svelte"
 
     const { beer: { TAP_LIST } } = constants
 
-    let beers = []
+    const getBeers = () => {
+        fetchBeerList()
+        debugger
+    }
 
-    const getBeers = async () => {
-        const response = await getBeerList()
-
-        if (response) {
-            beers = response
-        }
+    const reset = () => {
+        beerStore.reset()
     }
 </script>
 
 <div class="app-container">
     <div class="app-title">
         <h1>
-            {TAP_LIST} {JSON.stringify($count)}
+            {TAP_LIST}
             <button on:click={getBeers}>push button</button>
+            <button on:click={reset}>reset button</button>
         </h1>
+    </div>
 
-        <div class="beers">
-            <BeerCpx beer={beers[0]} />
-            <BeerCpx beer={beers[0]} />
-        </div>
+    <div class="beers-container">
+        <Beer beer={$beerStore.beers[0]} />
+        <Beer beer={$beerStore.beers[0]} />
     </div>
 </div>
 
@@ -36,7 +36,7 @@
         color: tomato;
     }
 
-    .beers {
+    .beers-container {
         display: grid;
         grid-template-columns: 50% 50%;
     }

@@ -1,29 +1,29 @@
 import { writable } from "svelte/store"
+import { Beer, defaultBeer } from "core"
 
-export const count = writable({hella_lit: true})
-// class Mailbox {
-//     messages: string[]
+interface BeerStore {
+	beers: Beer[]
+}
 
-// 	constructor() {
-// 		this.messages = []
-// 	}
-// }
+const createBeerStore = () => {
+	const { subscribe, set, update } = writable({ beers: [] } as BeerStore)
 
-// const createMailBox = () => {
-// 	const { subscribe, set, update } = writable(new Mailbox())
+	const receiveNewBeerData = (newBeers: Beer[]) =>
+		update((currentBeers) => {
+			return {
+				beers: [ ...currentBeers.beers, ...newBeers ],
+			}
+		})
 
-// 	const handleAddMsg = (newMsg: string) =>
-// 		update((mailbox) => {
-//             return { messages: [...mailbox.messages, newMsg] }
-//         })
+	const reset = () => {
+		set({ beers: [ defaultBeer ] } as BeerStore)
+	}
 
-//     return {
-// 		subscribe,
-// 		addMsg: (newMsg: string) => handleAddMsg(newMsg),
-// 		// getMsg: () => update((n) => n - 1),
-// 		reset: () => set(new Mailbox()),
-// 	}
-// }
+	return {
+		subscribe,
+		receiveNewBeerData,
+		reset,
+	}
+}
 
-// export const mailboxStore = createMailBox()
-
+export const beerStore = createBeerStore()
