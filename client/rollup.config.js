@@ -3,7 +3,6 @@ const commonjs = require("rollup-plugin-commonjs")
 const resolve = require("rollup-plugin-node-resolve")
 const serve = require("rollup-plugin-serve")
 const html = require("rollup-plugin-bundle-html")
-const svg = require('rollup-plugin-svg-import')
 const typescript = require("rollup-plugin-typescript2")
 const tscompile = require("typescript")
 const { terser } = require("rollup-plugin-terser")
@@ -27,10 +26,6 @@ const plugins = [
         template: "src/index.html",
         dest: "build",
         filename: "index.html",
-    }),
-    svg({
-        // process SVG to DOM Node or String. Default: false
-        stringify: false
     }),
 ]
 
