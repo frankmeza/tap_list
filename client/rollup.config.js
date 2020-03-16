@@ -17,7 +17,7 @@ const plugins = [
     typescript({ typescript: tscompile }),
     svelte({
         dev: isProd ? false : true,
-        extensions: [".svelte"],
+        extensions: [ ".svelte" ],
         preprocess: require("./svelte.config.js").preprocess,
         css: isTest ? false : css => css.write("build/css/style.css"),
     }),
@@ -35,7 +35,7 @@ if (isDev) {
             open: false,
             openPage: "/index.html",
             historyApiFallback: "/index.html",
-            contentBase: ["./build"],
+            contentBase: [ "./build" ],
         }),
         livereload({
             watch: "build",

@@ -45,8 +45,6 @@
 
     <div class="temp-border">
         <p>KEG AMOUNT LEFT: {percentLeft}%</p>
-        <!-- <img src={Keg} /> -->
-        {@html Keg}
     </div>
 </div>
 

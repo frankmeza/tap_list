@@ -1,16 +1,15 @@
 import { writable } from "svelte/store"
-import { Beer } from "../core"
+// import { Beer } from "./core"
 
-interface BeerStore {
-	beers: Beer[]
-}
+// interface BeerStore {
+// 	beers: Beer[]
+// }
 
-const emptyStore: BeerStore = { beers: [] }
-
-export const createBeerStore = () => {
+const createBeerStore = () => {
+    const emptyStore = { beers: [] }
 	const { subscribe, set, update } = writable(emptyStore)
 
-	const receiveNewBeerData = (newBeers: Beer[]) =>
+	const receiveNewBeerData = (newBeers) =>
 		update((currentStore) => {
 			return {
 				beers: [ ...currentStore.beers, ...newBeers ],
@@ -27,3 +26,5 @@ export const createBeerStore = () => {
 		reset,
 	}
 }
+
+export const beerStore = createBeerStore()
