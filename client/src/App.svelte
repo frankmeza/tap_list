@@ -25,8 +25,9 @@
     </div>
 
     <div class="beers-container">
-        <Beer beer={$beerStore.beers[0]} />
-        <Beer beer={$beerStore.beers[1]} />
+        {#each $beerStore.beers as beer}
+            <Beer beer={beer} />
+        {/each}
     </div>
 </div>
 
