@@ -2,7 +2,11 @@
     "name": "svelte-3-rollup-typescript-vscode",
     "version": "1.1.0",
     "description": "starter for svelte 3/rollup/typescript/vscode",
-    "keywords": [ "svelte", "rollup", "typescript" ],
+    "keywords": [
+        "svelte",
+        "rollup",
+        "typescript"
+    ],
     "main": "src/index.ts",
     "license": "MIT",
     "author": "Dmitry Kharitonov <geakstr@me.com>",
@@ -13,12 +17,13 @@
     },
     "scripts": {
         "cleanup": "rimraf ./build",
+        "nuke": "rm -rf node_modules/ package-lock.json; npm cleanup",
+        "new": "npm nuke; npm start",
         "test": "cross-env NODE_ENV=test jest",
         "start": "npm run cleanup && cross-env NODE_ENV=development rollup --config --watch",
         "build": "npm run cleanup && cross-env NODE_ENV=production rollup --config"
     },
     "devDependencies": {
-        "acorn": "5.7.4",
         "@babel/core": "7.4.5",
         "@babel/preset-env": "7.4.5",
         "@types/jest": "24.0.15",
@@ -27,7 +32,6 @@
         "cross-env": "5.2.0",
         "deasync": "0.1.15",
         "jest": "24.8.0",
-        "minimist": ">=1.2.2",
         "rimraf": "2.6.3",
         "rollup": "1.16.1",
         "rollup-plugin-bundle-html": "0.2.1",
@@ -37,17 +41,22 @@
         "rollup-plugin-serve": "1.0.1",
         "rollup-plugin-svelte": "5.1.1",
         "rollup-plugin-terser": "^5.2.0",
-        "rollup-plugin-typescript2": "0.21.2",
-        "svelte": "3.5.3",
+        "rollup-plugin-typescript2": "0.26.0",
+        "svelte": "3.19.1",
         "svelte-ts-preprocess": "1.1.3",
         "ts-jest": "24.0.2",
-        "typescript": "3.5.2"
+        "typescript": "3.8.3"
     },
     "babel": {
-        "presets": [ "@babel/preset-env" ]
+        "presets": [
+            "@babel/preset-env"
+        ]
     },
     "jest": {
-        "collectCoverageFrom": [ "./src/**/*.{js,jsx,ts,tsx}", "!**/*.d.ts" ],
+        "collectCoverageFrom": [
+            "./src/**/*.{js,jsx,ts,tsx}",
+            "!**/*.d.ts"
+        ],
         "testMatch": [
             "<rootDir>/src/**/__tests__/**/*.(j|t)s?(x)",
             "<rootDir>/src/**/?(*.)(spec|test).(j|t)s?(x)"
