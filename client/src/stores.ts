@@ -1,23 +1,22 @@
 import { writable } from "svelte/store"
-// import { Beer } from "./core"
+import { Beer, defaultBeer } from "core"
 
-// interface BeerStore {
-// 	beers: Beer[]
-// }
+interface BeerStore {
+	beers: Beer[]
+}
 
 const createBeerStore = () => {
-    const emptyStore = { beers: [] }
-	const { subscribe, set, update } = writable(emptyStore)
+	const { subscribe, set, update } = writable({ beers: [] } as BeerStore)
 
-	const receiveNewBeerData = (newBeers) =>
-		update((currentStore) => {
+	const receiveNewBeerData = (newBeers: Beer[]) =>
+		update((currentBeers) => {
 			return {
-				beers: [ ...currentStore.beers, ...newBeers ],
+				beers: [ ...currentBeers.beers, ...newBeers ],
 			}
 		})
 
 	const reset = () => {
-		set(emptyStore)
+		set({ beers: [ defaultBeer ] } as BeerStore)
 	}
 
 	return {
@@ -28,3 +27,34 @@ const createBeerStore = () => {
 }
 
 export const beerStore = createBeerStore()
+
+// import { writable } from "svelte/store"
+// // import { Beer } from "./core"
+
+// // interface BeerStore {
+// // 	beers: Beer[]
+// // }
+
+// const createBeerStore = () => {
+//     const emptyStore = { beers: [] }
+// 	const { subscribe, set, update } = writable(emptyStore)
+
+// 	const receiveNewBeerData = (newBeers) =>
+// 		update((currentStore) => {
+// 			return {
+// 				beers: [ ...currentStore.beers, ...newBeers ],
+// 			}
+// 		})
+
+// 	const reset = () => {
+// 		set(emptyStore)
+// 	}
+
+// 	return {
+// 		subscribe,
+// 		receiveNewBeerData,
+// 		reset,
+// 	}
+// }
+
+// export const beerStore = createBeerStore()
