@@ -1,7 +1,7 @@
 import { Beer } from "core"
-import { BASE_URL, BeerRemote } from "../remote"
+import { BASE_URL, BeerRemote } from "../core/remote"
 import { camelCaseObject } from "./transform"
-import { beerStore } from "stores"
+import { beerStore } from "../stores/beer"
 
 export async function fetchBeerList(): Promise<boolean> {
 	const response = await fetch(`${BASE_URL}/beers`)

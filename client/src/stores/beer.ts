@@ -1,5 +1,5 @@
 import { writable } from "svelte/store"
-import { Beer, defaultBeer } from "core"
+import { Beer } from "../core"
 
 interface BeerStore {
     beers: Beer[]

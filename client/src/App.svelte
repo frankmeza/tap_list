@@ -1,5 +1,5 @@
 <script>
-    import { beerStore } from "./stores"
+    import { beerStore } from "./stores/beer"
     import { constants } from "./constants/index"
     import { fetchBeerList } from "./utils/beer_utils"
     import Beer from "./components/beer.svelte"
