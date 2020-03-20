@@ -4,21 +4,21 @@ import { camelCaseObject } from "./transform"
 import { beerStore } from "../stores/beer"
 
 export async function fetchBeerList(): Promise<boolean> {
-	const response = await fetch(`${BASE_URL}/beers`)
+    const response = await fetch(`${BASE_URL}/beers`)
 
-	if (!response.ok) {
-		const error = await response.json()
-		console.error(error.message)
+    if (!response.ok) {
+        const error = await response.json()
+        console.error(error.message)
 
-		return false
-	}
+        return false
+    }
 
-	const beerListRemote: BeerRemote[] = await response.json()
+    const beerListRemote: BeerRemote[] = await response.json()
 
-	const beers = beerListRemote.map((beer) => {
-		return camelCaseObject(beer) as Beer
-	})
+    const beers = beerListRemote.map(beer => {
+        return camelCaseObject(beer) as Beer
+    })
 
-	beerStore.receiveBeerList(beers)
-	return true
+    beerStore.receiveBeerList(beers)
+    return true
 }
