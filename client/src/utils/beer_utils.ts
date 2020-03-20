@@ -19,6 +19,6 @@ export async function fetchBeerList(): Promise<boolean> {
 		return camelCaseObject(beer) as Beer
 	})
 
-	beerStore.receiveNewBeerData(beers)
+	beerStore.receiveBeerList(beers)
 	return true
 }

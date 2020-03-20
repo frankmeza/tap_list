@@ -2,59 +2,25 @@ import { writable } from "svelte/store"
 import { Beer, defaultBeer } from "core"
 
 interface BeerStore {
-	beers: Beer[]
+    beers: Beer[]
 }
 
+const emptyStore: BeerStore = { beers: [] }
+
 const createBeerStore = () => {
-	const { subscribe, set, update } = writable({ beers: [] } as BeerStore)
+    const { subscribe, set, update } = writable(emptyStore)
 
-	const receiveNewBeerData = (newBeers: Beer[]) =>
-		update((currentBeers) => {
-			return {
-				beers: [ ...currentBeers.beers, ...newBeers ],
-			}
-		})
+    // ...currentStore.beers can be put into the new array, as needed
+    const receiveBeerList = (newBeers: Beer[]) =>
+        update(currentStore => ({ beers: [ ...newBeers ] }))
 
-	const reset = () => {
-		set({ beers: [ defaultBeer ] } as BeerStore)
-	}
+    const reset = () => set(emptyStore)
 
-	return {
-		subscribe,
-		receiveNewBeerData,
-		reset,
-	}
+    return {
+        subscribe,
+        receiveBeerList,
+        reset,
+    }
 }
 
 export const beerStore = createBeerStore()
-
-// import { writable } from "svelte/store"
-// // import { Beer } from "./core"
-
-// // interface BeerStore {
-// // 	beers: Beer[]
-// // }
-
-// const createBeerStore = () => {
-//     const emptyStore = { beers: [] }
-// 	const { subscribe, set, update } = writable(emptyStore)
-
-// 	const receiveNewBeerData = (newBeers) =>
-// 		update((currentStore) => {
-// 			return {
-// 				beers: [ ...currentStore.beers, ...newBeers ],
-// 			}
-// 		})
-
-// 	const reset = () => {
-// 		set(emptyStore)
-// 	}
-
-// 	return {
-// 		subscribe,
-// 		receiveNewBeerData,
-// 		reset,
-// 	}
-// }
-
-// export const beerStore = createBeerStore()
