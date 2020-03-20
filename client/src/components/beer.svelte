@@ -1,6 +1,6 @@
 <script>
     import { defaultBeer } from "../core"
-    import Keg from "../assets/images/keg_image.svg"
+    // import Keg from "../assets/images/keg_image.svg"
 
     export let beer = defaultBeer
 
