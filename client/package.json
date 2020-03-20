@@ -2,7 +2,11 @@
     "name": "svelte-3-rollup-typescript-vscode",
     "version": "1.1.0",
     "description": "starter for svelte 3/rollup/typescript/vscode",
-    "keywords": [ "svelte", "rollup", "typescript" ],
+    "keywords": [
+        "svelte",
+        "rollup",
+        "typescript"
+    ],
     "main": "src/index.ts",
     "license": "MIT",
     "author": "Dmitry Kharitonov <geakstr@me.com>",
@@ -44,10 +48,15 @@
         "typescript": "3.5.2"
     },
     "babel": {
-        "presets": [ "@babel/preset-env" ]
+        "presets": [
+            "@babel/preset-env"
+        ]
     },
     "jest": {
-        "collectCoverageFrom": [ "./src/**/*.{js,jsx,ts,tsx}", "!**/*.d.ts" ],
+        "collectCoverageFrom": [
+            "./src/**/*.{js,jsx,ts,tsx}",
+            "!**/*.d.ts"
+        ],
         "testMatch": [
             "<rootDir>/src/**/__tests__/**/*.(j|t)s?(x)",
             "<rootDir>/src/**/?(*.)(spec|test).(j|t)s?(x)"
