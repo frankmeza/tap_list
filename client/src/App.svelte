@@ -1,10 +1,10 @@
 <script>
     import { beerStore } from "./stores/beer"
-    import { constants } from "./constants/index"
+    import { beerConstants } from "./constants/beer"
     import { fetchBeerList } from "./utils/beer_utils"
     import Beer from "./components/beer.svelte"
 
-    const { beer: { TAP_LIST } } = constants
+    const { TAP_LIST } = beerConstants
 
     const getBeers = () => {
         fetchBeerList()
