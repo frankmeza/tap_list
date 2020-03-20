@@ -1,6 +1,5 @@
 const deasync = require("deasync")
 const rollup = require("rollup")
-
 const config = require("./rollup.config.js")
 
 exports.process = (...args) => {
