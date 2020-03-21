@@ -26,10 +26,11 @@
 
     $: percentLeft = Math.round(kegSize / kegAmountLeft)
 
-    let hashData = `${name}${beerType}${breweryName}`
-    let imgSrc = `https://robohash.org/${hashData}.png`
+    let beerData = `${name}${beerType}${breweryName}`
+    let imgSrc = `https://robohash.org/${beerData}.png`
 
     let displayedAbv = `abv: ${abv}%`
+    let breweryInfo = `${breweryName} in ${breweryCity}, ${breweryState}`
 </script>
 
 <div class="beer-container">
@@ -49,7 +50,7 @@
             <span class="beer-abv">{displayedAbv}</span>
         </p>
 
-        <p class="brewery-info">{breweryName} in {breweryCity}, {breweryState}</p>
+        <p class="brewery-location">{breweryInfo}</p>
     </div>
 
     <div class="section">
@@ -93,14 +94,30 @@
         font-style: italic;
         font-weight: bold;
         font-size: 1.25em;
-        margin: 0.25em 0;
+        margin: 0.5em 0;
     }
 
     .beer-name {
         font-size: 1.75em;
     }
 
+    .beer-type {
+        margin-right: 0.5em;
+    }
+
     .beer-abv {
+        background-color: chartreuse;
+        border-radius: 0.5em;
+        color: #333;
+        font-size: 1em;
+        font-style: bold;
+        padding: 0.25em 0.5em;
+    }
+
+    .brewery-location {
+        border-radius: 0.5em;
+        color: chartreuse;
+        font-size: 1em;
         font-style: none;
     }
 </style>
