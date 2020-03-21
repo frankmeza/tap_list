@@ -17,7 +17,6 @@ pub struct BeerRequest {
     pub brewery_name: String,
     pub brewery_city: String,
     pub brewery_state: String,
-    pub brewery_img_url: String,
     pub keg_id: String,
     pub keg_size: i32,
     pub keg_amount_left: i32,

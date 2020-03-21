@@ -56,7 +56,6 @@ export interface BeerRemote {
 	brewery_name: string
 	brewery_city: string
 	brewery_state: string
-	brewery_img_url: string
 	keg_id: string
 	keg_size: number
 	keg_amount_left: number

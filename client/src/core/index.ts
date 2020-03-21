@@ -14,7 +14,6 @@ export interface Beer {
 	breweryName: string
 	breweryCity: string
 	breweryState: string
-	breweryImgUrl: string
 	kegId: string
 	kegSize: number
 	kegAmountLeft: number
@@ -34,7 +33,6 @@ export const defaultBeer: Beer = {
 	breweryName: "",
 	breweryCity: "",
 	breweryState: "",
-	breweryImgUrl: "",
 	kegId: "",
 	kegSize: 0,
 	kegAmountLeft: 0,

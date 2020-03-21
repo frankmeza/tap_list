@@ -63,7 +63,6 @@ pub fn generate_enum(filter_string: String) -> BeerFilters {
 //         brewery_name, \
 //         brewery_city, \
 //         brewery_state, \
-//         brewery_img_url, \
 //         keg_id, \
 //         keg_size, \
 //         keg_amount_left, \
@@ -88,7 +87,6 @@ pub fn generate_enum(filter_string: String) -> BeerFilters {
 //         beer.brewery_name,
 //         beer.brewery_city,
 //         beer.brewery_state,
-//         beer.brewery_img_url,
 //         beer.keg_id,
 //         beer.keg_size,
 //         beer.keg_amount_left,
