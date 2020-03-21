@@ -15,11 +15,11 @@ pub fn gather_beer_list(rows: Vec<Row>, mut beer_list: Vec<Beer>) -> Result<Vec<
             brewery_name: row.get(8),
             brewery_city: row.get(9),
             brewery_state: row.get(10),
-            keg_id: row.get(12),
-            keg_size: row.get(13),
-            keg_amount_left: row.get(14),
-            updated_ts: row.get(15),
-            created_ts: row.get(16),
+            keg_id: row.get(11),
+            keg_size: row.get(12),
+            keg_amount_left: row.get(13),
+            updated_ts: row.get(14),
+            created_ts: row.get(15),
         };
 
         beer_list.push(beer);
