@@ -15,9 +15,9 @@ export async function fetchBeerList(): Promise<boolean> {
 
     const beerListRemote: BeerRemote[] = await response.json()
 
-    const beers = beerListRemote.map(beer => {
-        return camelCaseObject(beer) as Beer
-    })
+    const beers = beerListRemote
+        .map(beer => camelCaseObject(beer) as Beer)
+        .sort((a, b) => (a.sortOrder > b.sortOrder ? 1 : -1))
 
     beerStore.receiveBeerList(beers)
     return true
