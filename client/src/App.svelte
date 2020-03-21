@@ -15,7 +15,7 @@
     }
 </script>
 
-<div class="app-container">
+<div id="app-container">
     <div class="app-title">
         <h1>
             {TAP_LIST}
@@ -32,6 +32,10 @@
 </div>
 
 <style>
+    #app-container {
+        background: rgb(68,84,98);
+    }
+
     h1 {
         color: tomato;
     }
