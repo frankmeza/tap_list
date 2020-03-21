@@ -22,7 +22,7 @@ pub async fn fetch_beer_list() -> impl Responder {
 
     match beer_list.await {
         Err(error) => HttpResponse::ServiceUnavailable().json(ErrorResponse {
-            message: format!("{:?}", error),
+            message: format!("ERROR: fetch_beer_list {:?}", error),
         }),
         Ok(beer_list) => HttpResponse::Ok().json(beer_list),
     }
