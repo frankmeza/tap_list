@@ -48,6 +48,7 @@
         <p class="beer-type-abv">
             <span class="beer-type">{beerType}</span>
             <span class="beer-abv">{displayedAbv}</span>
+            <span class="beer-cost">${cost}</span>
         </p>
 
         <p class="brewery-location">{breweryInfo}</p>
@@ -87,11 +88,11 @@
         max-height: 7em;
     }
 
+    .beer-cost,
     .beer-type,
     .beer-name {
         color: #efe;
-        font-family: 'Courier New', Courier, monospace;
-        font-style: italic;
+        font-family: 'Fira Code', 'Courier New', Courier, monospace;
         font-weight: bold;
         font-size: 1.25em;
         margin: 0.5em 0;
@@ -101,6 +102,13 @@
         font-size: 1.75em;
     }
 
+    .beer-name,
+    .beer-type {
+        font-style: italic;
+    }
+
+    .beer-abv,
+    .beer-cost,
     .beer-type {
         margin-right: 0.5em;
     }
@@ -117,7 +125,13 @@
     .brewery-location {
         border-radius: 0.5em;
         color: chartreuse;
+        font-family: 'Courier New', Courier, monospace;
         font-size: 1em;
         font-style: none;
+    }
+
+    .beer-cost {
+        font-style: none;
+        color: gold;
     }
 </style>

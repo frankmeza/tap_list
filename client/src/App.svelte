@@ -6,11 +6,12 @@
 
     const { TAP_LIST } = beerConstants
 
-    const getBeers = () => {
+    const refreshBeerList = () => {
+        clearList()
         fetchBeerList()
     }
 
-    const reset = () => {
+    const clearList = () => {
         beerStore.reset()
     }
 </script>
@@ -19,8 +20,8 @@
     <div class="app-title">
         <h1>
             {TAP_LIST}
-            <button on:click={getBeers}>push button</button>
-            <button on:click={reset}>reset button</button>
+            <button on:click={refreshBeerList}>fetch</button>
+            <button on:click={clearList}>clear all</button>
         </h1>
     </div>
 
