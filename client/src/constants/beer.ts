@@ -1,3 +1,3 @@
 export const beerConstants = {
-    TAP_LIST: "Beer Tap List",
+    TAP_LIST: "Robohash Tap List",
 }
