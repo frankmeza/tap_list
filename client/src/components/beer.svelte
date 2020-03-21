@@ -2,9 +2,10 @@
     import { defaultBeer } from "../core"
     // import Keg from "../assets/images/keg_image.svg"
 
-    export let beer = defaultBeer
+    export let beer
+    export let render = false
 
-    const {
+    let {
         id = "",
         sortOrder = 0,
         name = "",
@@ -16,7 +17,6 @@
         breweryName = "",
         breweryCity = "",
         breweryState = "",
-        breweryImgUrl = "",
         kegId = "",
         kegSize = 0,
         kegAmountLeft = 0,
@@ -25,23 +25,31 @@
     } = beer
 
     $: percentLeft = Math.round(kegSize / kegAmountLeft)
-    // TODO ROBOHASH https://robohash.org/ for image url -> create a hash from name, beerType, breweryName
+
+    let hashData = `${name}${beerType}${breweryName}`
+    let imgSrc = `https://robohash.org/${hashData}.png`
+
+    let displayedAbv = `abv: ${abv}%`
 </script>
 
-<!-- <pre>{JSON.stringify(beer, null, 4)}</pre> -->
 <div class="beer-container">
     <div class="section">
-        {sortOrder}
+        <p class="tap-number">{sortOrder}</p>
     </div>
 
     <div class="section">
-        {breweryImgUrl}
+        <img class="robohash" src={imgSrc} alt="robohash image" />
     </div>
 
-    <div class="section">
-        <p>{breweryName} {name}</p>
-        <p>{beerType}</p>
-        <p>{breweryCity}, {breweryState} ABV {abv}%</p>
+    <div class="section brewery-info">
+        <p class="beer-name">{name}</p>
+
+        <p class="beer-type-abv">
+            <span class="beer-type">{beerType}</span>
+            <span class="beer-abv">{displayedAbv}</span>
+        </p>
+
+        <p class="brewery-info">{breweryName} in {breweryCity}, {breweryState}</p>
     </div>
 
     <div class="section">
@@ -51,17 +59,48 @@
 
 <style>
     .beer-container {
+        background: rgb(68,84,98);
+        border: 2px solid #ddd;
+        border-radius: 1em;
         display: grid;
-        grid-template-columns: 15% 15% 55% 15%;
-
-        margin-right: 4px;
-        padding: 4px;
-
-        background: rgb(34,193,195);
-        background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+        grid-template-columns: 10% 15% 55% 20%;
+        margin: 0.25em;
+        padding: 0.25em;
     }
 
     .section {
-        padding: 1em;
+        padding: 0.5em;
+        max-height: 8.5em;
+    }
+
+    .tap-number {
+        color: #ddd;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 5em;
+        font-weight: bold;
+        margin: 0.15em 0 0 0.1em;
+        padding: 0.1em 0 0 0.25em;
+    }
+
+    .robohash {
+        max-height: 7em;
+    }
+
+    .beer-type,
+    .beer-name {
+        color: #efe;
+        font-family: 'Courier New', Courier, monospace;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 1.25em;
+        margin: 0.25em 0;
+    }
+
+    .beer-name {
+        font-size: 1.75em;
+    }
+
+    .beer-abv {
+        font-style: none;
     }
 </style>
