@@ -60,6 +60,7 @@
     .beers-container {
         display: grid;
         grid-template-columns: 50% 50%;
+        margin-top: 20px;
     }
 
     .async-buttons {

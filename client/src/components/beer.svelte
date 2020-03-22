@@ -27,7 +27,7 @@
     $: percentLeft = Math.round(kegSize / kegAmountLeft)
 
     let beerData = `${name}${beerType}${breweryName}`
-    let imgSrc = `https://robohash.org/${beerData}.png`
+    let imgSrc = `https://robohash.org/${beerData}.png` // append ?set=set5 for humans
 
     let displayedAbv = `abv: ${abv}%`
     let breweryInfo = `${breweryName} in ${breweryCity}, ${breweryState}`
