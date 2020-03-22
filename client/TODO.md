@@ -2,5 +2,6 @@
 
 ## TODO 
 
-1. create a hash, create an imageUrl search for `// TODO ROBOHASH`
-2. reinstate websockets listener for server to send signals to decrement keg amount as number percentage left
+1. reinstate websockets listener for server to send signals to decrement keg amount as number percentage left
+2. click on a beer, see its history
+3. allow emoji reactions to each beer, with display
