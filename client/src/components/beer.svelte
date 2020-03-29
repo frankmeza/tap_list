@@ -1,6 +1,7 @@
 <script>
     import { defaultBeer } from "../core"
-    // import Keg from "../assets/images/keg_image.svg"
+    import BeerKeg from "./beer_keg.svelte"
+    import KegSvg from "../images/keg.svg"
 
     export let beer
     export let render = false
@@ -24,7 +25,7 @@
         createdTs = 0,
     } = beer
 
-    $: percentLeft = Math.round(kegAmountLeft / kegSize * 100)
+    let percentLeft = Math.round(kegAmountLeft / kegSize * 100)
 
     let beerData = `${name}${beerType}${breweryName}`
     let imgSrc = `https://robohash.org/${beerData}.png` // append ?set=set5 for humans
@@ -34,11 +35,11 @@
 </script>
 
 <div class="beer-container">
-    <div class="section">
+    <div class="section beer-tap">
         <p class="tap-number">{sortOrder}</p>
     </div>
 
-    <div class="section">
+    <div class="section robohash-image">
         <img class="robohash" src={imgSrc} alt="robohash image" />
     </div>
 
@@ -54,8 +55,8 @@
         <p class="brewery-location">{breweryInfo}</p>
     </div>
 
-    <div class="section">
-        <p>KEG AMOUNT LEFT: {percentLeft}%</p>
+    <div class="section keg-container">
+        <div class="keg"><KegSvg /></div>
     </div>
 </div>
 
@@ -133,5 +134,15 @@
     .beer-cost {
         font-style: none;
         color: gold;
+    }
+
+    .keg-container {
+        padding: 2.75em 0 0 6.25em;
+    }
+
+    .keg {
+        width: 54px;
+        height: 64px;
+        background-color: #efe;
     }
 </style>
