@@ -1,3 +1,5 @@
+- keg image created by Becris from the Noun Project
+
 ### Description
 
 Starter pack for Svelte 3/Rollup/Typescript/Visual Studio Code:

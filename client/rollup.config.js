@@ -8,6 +8,8 @@ const tscompile = require("typescript")
 const { terser } = require("rollup-plugin-terser")
 const livereload = require("rollup-plugin-livereload")
 
+const svelteSVG = require("rollup-plugin-svelte-svg")
+
 const isProd = process.env.NODE_ENV === "production"
 const isDev = process.env.NODE_ENV === "development"
 const isTest = process.env.NODE_ENV === "test"
@@ -27,6 +29,7 @@ const plugins = [
         dest: "build",
         filename: "index.html",
     }),
+    svelteSVG(),
 ]
 
 if (isDev) {
