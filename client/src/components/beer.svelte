@@ -1,7 +1,7 @@
 <script>
     import { defaultBeer } from "../core"
-    import BeerKeg from "./beer_keg.svelte"
     import KegSvg from "../images/keg.svg"
+    import { calcKegColor, calcPercentLeft } from "./ui_utils/beer"
 
     export let beer
     export let render = false
@@ -25,7 +25,8 @@
         createdTs = 0,
     } = beer
 
-    let percentLeft = Math.round(kegAmountLeft / kegSize * 100)
+    let percentLeft = calcPercentLeft(kegAmountLeft, kegSize)
+    let kegColor = calcKegColor(percentLeft)
 
     let beerData = `${name}${beerType}${breweryName}`
     let imgSrc = `https://robohash.org/${beerData}.png` // append ?set=set5 for humans
@@ -56,7 +57,9 @@
     </div>
 
     <div class="section keg-container">
-        <div class="keg"><KegSvg /></div>
+        <div class={`keg keg-${kegColor}`}>
+            <KegSvg />
+        </div>
     </div>
 </div>
 
@@ -64,29 +67,29 @@
     .beer-container {
         background: rgb(68,84,98);
         border: 2px solid #ddd;
-        border-radius: 1em;
+        border-radius: 1rem;
         display: grid;
         grid-template-columns: 10% 15% 55% 20%;
-        margin: 0.25em;
-        padding: 0.25em;
+        margin: 0.25rem;
+        padding: 0.25rem;
     }
 
     .section {
-        padding: 0.5em;
-        max-height: 8.5em;
+        padding: 0.5rem;
+        max-height: 8.5rem;
     }
 
     .tap-number {
         color: #ddd;
         font-family: 'Courier New', Courier, monospace;
-        font-size: 5em;
+        font-size: 5rem;
         font-weight: bold;
-        margin: 0.15em 0 0 0.1em;
-        padding: 0.1em 0 0 0.25em;
+        margin: 0;
+        padding: 2rem 0 0 1.25rem;
     }
 
     .robohash {
-        max-height: 7em;
+        max-height: 7rem;
     }
 
     .beer-cost,
@@ -95,12 +98,12 @@
         color: #efe;
         font-family: 'Fira Code', 'Courier New', Courier, monospace;
         font-weight: bold;
-        font-size: 1.25em;
-        margin: 0.5em 0;
+        font-size: 1.25rem;
+        margin: 0.5rem 0;
     }
 
     .beer-name {
-        font-size: 1.75em;
+        font-size: 1.75rem;
     }
 
     .beer-name,
@@ -111,23 +114,23 @@
     .beer-abv,
     .beer-cost,
     .beer-type {
-        margin-right: 0.5em;
+        margin-right: 0.5rem;
     }
 
     .beer-abv {
         background-color: chartreuse;
-        border-radius: 0.5em;
+        border-radius: 0.5rem;
         color: #333;
-        font-size: 1em;
+        font-size: 1rem;
         font-style: bold;
-        padding: 0.25em 0.5em;
+        padding: 0.25rem 0.5rem;
     }
 
     .brewery-location {
-        border-radius: 0.5em;
+        border-radius: 0.5rem;
         color: chartreuse;
         font-family: 'Courier New', Courier, monospace;
-        font-size: 1em;
+        font-size: 1rem;
         font-style: none;
     }
 
@@ -137,12 +140,31 @@
     }
 
     .keg-container {
-        padding: 2.75em 0 0 6.25em;
+        margin: 3rem 0rem 1rem 4rem;
     }
 
     .keg {
-        width: 54px;
-        height: 64px;
+        width: 3.4rem;
+        height: 4rem;
+    }
+
+    .keg-neutral {
         background-color: #efe;
+    }
+
+    .keg-green {
+        background-color: chartreuse;
+    }
+
+    .keg-yellow {
+        background-color: gold;
+    }
+
+    .keg-orange {
+        background-color: orange;
+    }
+
+    .keg-red {
+        background-color: red;
     }
 </style>
