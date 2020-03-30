@@ -12,7 +12,7 @@ const createBeerStore = () => {
 
     // ...currentStore.beers can be put into the new array, as needed
     const receiveBeerList = (newBeers: Beer[]) =>
-        update(currentStore => ({ beers: [ ...newBeers ] }))
+        update(_currentStore => ({ beers: [ ...newBeers ] }))
 
     const reset = () => set(emptyStore)
 
