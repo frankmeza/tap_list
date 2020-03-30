@@ -1,7 +1,14 @@
 <script>
     import { defaultBeer } from "../core"
     import KegSvg from "../images/keg.svg"
-    import { calcKegColor, calcPercentLeft } from "./ui_utils/beer"
+    import {
+        calcKegColor,
+        calcPercentLeft,
+        formatBeerData,
+        formatImgSrc,
+        formatDisplayedAbv,
+        formatBreweryInfo,
+    } from "./ui_utils/beer"
 
     export let beer
     export let render = false
@@ -28,11 +35,15 @@
     let percentLeft = calcPercentLeft(kegAmountLeft, kegSize)
     let kegColor = calcKegColor(percentLeft)
 
-    let beerData = `${name}${beerType}${breweryName}`
-    let imgSrc = `https://robohash.org/${beerData}.png` // append ?set=set5 for humans
+    let beerData = formatBeerData(name, beerType, breweryName)
+    let imgSrc = formatImgSrc(beerData)
+    let displayedAbv = formatDisplayedAbv(abv)
 
-    let displayedAbv = `abv: ${abv}%`
-    let breweryInfo = `${breweryName} in ${breweryCity}, ${breweryState}`
+    let breweryInfo = formatBreweryInfo(
+        breweryName,
+        breweryCity,
+        breweryState,
+    )
 </script>
 
 <div class="beer-container">
