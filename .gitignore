@@ -1,2 +1,5 @@
 target/*
 .vscode
+
+server/target/
+.DS_Store
