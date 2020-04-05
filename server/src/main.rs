@@ -7,6 +7,7 @@ mod handlers;
 mod models;
 mod queries;
 mod responders;
+mod ws_server;
 
 extern crate env_logger;
 extern crate ws;
@@ -40,6 +41,8 @@ async fn main() -> std::io::Result<()> {
                     .max_age(3600)
                     .finish(),
             )
+            // WS
+            .route("/ws/", web::get().to(ws_server::start))
             // BEER
             .route("/beers", web::get().to(responders::fetch_beer_list))
             // .route("/beers/{id}", web::get().to(responders::get_beer_by_id))
