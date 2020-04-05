@@ -12,3 +12,9 @@ The idea here tech-wise is to:
   - to update the database,
   - handle the db response,
   - send a message to the client to update ui instantly.
+
+
+## Ideas, Thoughts
+
+- If I want to show all options in the CLI app, eg. which beers are on tap, it will need to receive data from the db via the server
+- 
