@@ -23,7 +23,7 @@ pub fn generate_filter_string(filter: BeerFilters) -> String {
         BeerFilters::KegAmountLeft => String::from("keg_amount_left"),
         BeerFilters::UpdatedTs => String::from("updated_ts"),
         BeerFilters::CreatedTs => String::from("created_ts"),
-        BeerFilters::Error => String::from("ERROR: generate_filter_string")
+        BeerFilters::Error => String::from("ERROR: generate_filter_string"),
     }
 }
 

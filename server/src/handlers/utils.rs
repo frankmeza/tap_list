@@ -1,7 +1,10 @@
 use crate::models::Beer;
 use tokio_postgres::{row::Row, Error};
 
-pub fn gather_beer_list(rows: Vec<Row>, mut beer_list: Vec<Beer>) -> Result<Vec<Beer>, Error> {
+pub fn gather_beer_list(
+    rows: Vec<Row>,
+    mut beer_list: Vec<Beer>,
+) -> Result<Vec<Beer>, Error> {
     for row in rows {
         let beer = Beer {
             id: row.get(0),

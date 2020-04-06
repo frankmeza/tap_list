@@ -28,14 +28,18 @@ pub async fn fetch_beer_list() -> impl Responder {
     }
 }
 
-pub async fn fetch_beers_filtered_by(f: web::Json<FilterTypeAndValue>) -> impl Responder {
+pub async fn fetch_beers_filtered_by(
+    f: web::Json<FilterTypeAndValue>,
+) -> impl Responder {
     let ftv = FilterTypeAndValue {
         filter_type: String::from(&f.filter_type),
         filter_value: String::from(&f.filter_value),
     };
 
     let search_enum = generate_enum(ftv.filter_type);
-    let beer_list = handle_beer_list_filtered_by(search_enum, &ftv.filter_value);
+
+    let beer_list =
+        handle_beer_list_filtered_by(search_enum, &ftv.filter_value);
 
     match beer_list.await {
         Err(error) => HttpResponse::ServiceUnavailable().json(ErrorResponse {

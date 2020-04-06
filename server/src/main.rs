@@ -14,7 +14,9 @@ extern crate ws;
 
 async fn get_async_connection(query_string: String) -> Result<Vec<Row>, Error> {
     let connection_url = "postgres://postgres@localhost:5432/beer_tap_list";
-    let (client, connection) = tokio_postgres::connect(connection_url, NoTls).await?;
+
+    let (client, connection) =
+        tokio_postgres::connect(connection_url, NoTls).await?;
 
     tokio::spawn(async move {
         if let Err(e) = connection.await {
@@ -36,7 +38,10 @@ async fn main() -> std::io::Result<()> {
                 Cors::new()
                     .allowed_origin("http://localhost:10001")
                     .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
-                    .allowed_headers(vec![header::AUTHORIZATION, header::ACCEPT])
+                    .allowed_headers(vec![
+                        header::AUTHORIZATION,
+                        header::ACCEPT,
+                    ])
                     .allowed_header(header::CONTENT_TYPE)
                     .max_age(3600)
                     .finish(),
@@ -46,7 +51,10 @@ async fn main() -> std::io::Result<()> {
             // BEER
             .route("/beers", web::get().to(responders::fetch_beer_list))
             // .route("/beers/{id}", web::get().to(responders::get_beer_by_id))
-            .route("/beers/filtered", web::get().to(responders::fetch_beers_filtered_by))
+            .route(
+                "/beers/filtered",
+                web::get().to(responders::fetch_beers_filtered_by),
+            )
     })
     .bind("127.0.0.1:8088")?
     .run()
