@@ -10,6 +10,7 @@ use crate::{
 
 use actix_web::{web, HttpResponse, Responder};
 use serde_derive::{Deserialize, Serialize};
+use tokio_postgres::error::Error as TokioPgError;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct FilterTypeAndValue {
@@ -21,9 +22,7 @@ pub async fn fetch_beer_list() -> impl Responder {
     let beer_list = handle_beer_list();
 
     match beer_list.await {
-        Err(error) => HttpResponse::ServiceUnavailable().json(ErrorResponse {
-            message: format!("ERROR: fetch_beer_list {:?}", error),
-        }),
+        Err(error) => service_unavailable("fetch_beer_list", error),
         Ok(beer_list) => HttpResponse::Ok().json(beer_list),
     }
 }
@@ -42,9 +41,13 @@ pub async fn fetch_beers_filtered_by(
         handle_beer_list_filtered_by(search_enum, &ftv.filter_value);
 
     match beer_list.await {
-        Err(error) => HttpResponse::ServiceUnavailable().json(ErrorResponse {
-            message: format!("ERROR: fetch_beers_filtered_by {:?}", error),
-        }),
+        Err(error) => service_unavailable("fetch_beers_filtered_by", error),
         Ok(beer_list) => HttpResponse::Ok().json(beer_list),
     }
+}
+
+fn service_unavailable(fn_name: &str, error: TokioPgError) -> HttpResponse {
+    HttpResponse::ServiceUnavailable().json(ErrorResponse {
+        message: format!("ERROR: {} {:?}", fn_name, error),
+    })
 }
