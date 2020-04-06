@@ -11,7 +11,11 @@ impl Actor for WebSocket {
 
 /// Handler for ws::Message message
 impl StreamHandler<Result<ws::Message, ws::ProtocolError>> for WebSocket {
-    fn handle(&mut self, msg: Result<ws::Message, ws::ProtocolError>, ctx: &mut Self::Context) {
+    fn handle(
+        &mut self,
+        msg: Result<ws::Message, ws::ProtocolError>,
+        ctx: &mut Self::Context,
+    ) {
         match msg {
             Ok(ws::Message::Ping(msg)) => ctx.pong(&msg),
             Ok(ws::Message::Text(text)) => ctx.text(text),
@@ -21,7 +25,10 @@ impl StreamHandler<Result<ws::Message, ws::ProtocolError>> for WebSocket {
     }
 }
 
-pub async fn start(req: HttpRequest, stream: web::Payload) -> Result<HttpResponse, Error> {
+pub async fn start(
+    req: HttpRequest,
+    stream: web::Payload,
+) -> Result<HttpResponse, Error> {
     let resp = ws::start(WebSocket {}, &req, stream);
     println!("WS RESP: ====\n\n\n{:?}", resp);
     resp
