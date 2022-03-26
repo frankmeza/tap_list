@@ -31,7 +31,7 @@
         "cross-env": "5.2.0",
         "deasync": "0.1.15",
         "jest": "24.8.0",
-        "minimist": ">=1.2.2",
+        "minimist": ">=1.2.6",
         "rimraf": "2.6.3",
         "rollup": "1.16.1",
         "rollup-plugin-bundle-html": "0.2.1",
